@@ -15,8 +15,6 @@ int main()
         cout << x << " ";
     }
 
-    res.push_back(0);
-
     int i = 1;
     int c = 1; // 紀錄當前二的倍數
     vector<int> temp{1};
