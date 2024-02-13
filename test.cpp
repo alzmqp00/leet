@@ -5,20 +5,20 @@
 #include <map>
 #include <array>
 using namespace std;
-
+bool compare(vector<int> a, vector<int> b)
+{
+    return a[0] == b[0] ? a[1] > b[1] : a[0] < b[0];
+}
 int main()
 {
 
-    vector<int> res;
-    for (auto x : res)
-    {
-        cout << x << " ";
-    }
+    vector<vector<int>> board = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
+    sort(board.begin(), board.end(), compare);
 
-    int i = 1;
-    int c = 1; // 紀錄當前二的倍數
-    vector<int> temp{1};
-    vector<int> temp2;
+    for (int i = 0; i < board.size(); i++)
+    {
+        cout << board[i][0] << " " << board[i][1] << endl;
+    }
 
     return 0;
 }
