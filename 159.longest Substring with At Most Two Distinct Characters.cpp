@@ -45,6 +45,6 @@ int lengthOfLongestSubstring(string s)
 int main()
 {
     string a;
-    while (cin >> a)
+    while (in >> a)
         cout << lengthOfLongestSubstring(a) << endl;
 }

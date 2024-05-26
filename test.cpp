@@ -5,20 +5,31 @@
 #include <map>
 #include <array>
 using namespace std;
-bool compare(vector<int> a, vector<int> b)
+/**
+ * Calculates the greatest common divisor (GCD) of two numbers.
+ *
+ * @param a The first number.
+ * @param b The second number.
+ * @return The GCD of the two numbers.
+ */
+void gcd()
 {
-    return a[0] == b[0] ? a[1] > b[1] : a[0] < b[0];
+    int a, b;
+    in >> a >> b;
+    while (a != b)
+    {
+        if (a > b)
+        {
+            a = a - b;
+        }
+        else
+        {
+            b = b - a;
+        }
+    }
+    cout << a;
 }
 int main()
 {
-
-    vector<vector<int>> board = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
-    sort(board.begin(), board.end(), compare);
-
-    for (int i = 0; i < board.size(); i++)
-    {
-        cout << board[i][0] << " " << board[i][1] << endl;
-    }
-
     return 0;
 }

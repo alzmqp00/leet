@@ -5,18 +5,20 @@ class Solution
 public:
     int reverse(int x)
     {
-        int i = 1;
+        int i = 0;
         int res = 0;
-        //123
-        if (x == 0 || abs(x) < 10)
-        {
-            return x;
-        }
-
+        // 123
         while (x != 0)
         {
-            res += (x % 10) * i++;
+            if (i > 9)
+                return 0;
+            else if (x > 0 && (INT32_MAX - x % 10) / 10 < res)
+                return 0;
+            else if (x < 0 && (INT32_MIN - x % 10) / 10 > res)
+                return 0;
+            res = res * 10 + x % 10;
             x /= 10;
+            i++;
         }
         return res;
     }
