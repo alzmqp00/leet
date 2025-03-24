@@ -11,7 +11,7 @@ public:
             return nums[0];
         if (nums.size() == 2)
             return max(nums[0], nums[1]);
-        vector<int> dp(nums.size(), 0); // 前面i个房子能偷的的最大值
+        vector<int> dp(nums.size(), 0); // 偷i的的情況下的最大值
         dp[0] = nums[0];
         dp[1] = nums[1];
         dp[2] = nums[2] + nums[0];

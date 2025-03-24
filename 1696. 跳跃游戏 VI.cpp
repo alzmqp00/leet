@@ -3,6 +3,12 @@
 #include <algorithm>
 #include <map>
 // n*lon(n) 有待優化
+/**
+ * 要到達位置n 一定是從n-1~n-k的其中一個位置過來的 只要知道n-1~n-k誰最大 就選它
+ *
+ *
+ *
+ */
 using namespace std;
 class Solution
 {
@@ -11,7 +17,7 @@ public:
     {
         vector<int> dp(nums.size(), 0); // 到i點的最大值
         dp[0] = nums[0];
-        multimap<int, int> maxHeap; // 為了拿到的索引
+        multimap<int, int> maxHeap; // 為了拿到的索引<nums,index>
         maxHeap.insert({dp[0], 0});
         int index = 0;
         for (int i = 1; i < nums.size(); i++)
@@ -19,7 +25,7 @@ public:
             // auto maxElement = *(maxHeap.rbegin());
             /*maxElement = *(maxHeap.rbegin());
         這個錯誤訊息表示你試圖賦值給一個 std::pair 的 first 成員，
-        而該成員是 const 的。
+        而該成員是 const 的。[10,-5,-2,4,0,3], k = 3
             */
             // 如果最大值的索引值太小 就移除直到發現第一個可以用的數字
             while (i > (maxHeap.rbegin())->second + k)
